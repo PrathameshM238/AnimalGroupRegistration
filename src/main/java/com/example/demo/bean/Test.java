@@ -4,12 +4,11 @@ package com.example.demo.bean;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import com.example.demo.model.TestModel;
 
 
-@Service
+@Component
 public class Test {
 	private Integer testId;
 	private String testStatus;
