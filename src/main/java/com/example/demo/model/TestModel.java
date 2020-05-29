@@ -11,11 +11,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Component
 @Entity(name="activity")
@@ -37,10 +38,12 @@ public class TestModel {
 	@OneToOne(cascade = CascadeType.ALL,
             fetch = FetchType.EAGER)
 	@JoinColumn(name="test_type")
+	@JsonIgnoreProperties("test")
 	private TestType testTypeDetails;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="fk_AnimalGroup")
+	@JsonIgnoreProperties("test")
 	private AnimalGroup fk_AnimalGroup;
 	
 	public Integer getTestId() {

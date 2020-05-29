@@ -19,10 +19,9 @@ public class Test {
 	@Autowired
 	TestModel tm;
 	
-	@Autowired
-	Test to;
 	
 	public Test map(TestModel testModal) {
+		Test to = new Test();
 		to.setTestId(testModal.getTestId());
 		to.setTestStatus(testModal.getTestStatus());
 		to.setTestType(testModal.getTestTypeDetails().getTest_type_def());

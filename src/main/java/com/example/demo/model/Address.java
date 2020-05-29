@@ -1,18 +1,16 @@
 package com.example.demo.model;
 
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Component
 @Entity
@@ -29,9 +27,9 @@ public class Address {
 	@Column(name= "pin_code")
 	private String pinCode;
 	
-	@ManyToMany(mappedBy = "addresses")
-	@JsonIgnoreProperties("addresses")
-	private Set<AnimalGroup> animalGroups;
+	@ManyToOne
+	@JoinColumn(name="animalGroupId")
+	private AnimalGroup animalGroup;
 
 	public Integer getId() {
 		return id;
@@ -57,13 +55,17 @@ public class Address {
 		this.pinCode = pinCode;
 	}
 
-	public Set<AnimalGroup> getAnimalGroups() {
-		return animalGroups;
+	public AnimalGroup getAnimalGroup() {
+		return animalGroup;
 	}
 
-	public void setAnimalGroups(Set<AnimalGroup> animalGroups) {
-		this.animalGroups = animalGroups;
+	public void setAnimalGroup(AnimalGroup animalGroup) {
+		this.animalGroup = animalGroup;
 	}
+
+	
+
+	
 	
 	
 

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.bean.AnimalGroupTO;
+import com.example.demo.model.AnimalGroup;
 import com.example.demo.service.AnimalGroupBM;
 
 @RestController

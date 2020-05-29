@@ -23,7 +23,7 @@ public class AnimalGroupTO {
 	private String animalGroupNumber;
 	private String type;
 	private List<Test> tests;
-	private Set<Address> addresses;
+	private List<Address> addresses;
 	
 	public Integer getId() {
 		return id;
@@ -53,16 +53,16 @@ public class AnimalGroupTO {
 	}
 	
 	
-	public Set<Address> getAddresses() {
+	public List<Address> getAddresses() {
 		return addresses;
 	}
-	public void setAddresses(Set<Address> addresses) {
+	public void setAddresses(List<Address> addresses) {
 		this.addresses = addresses;
 	}
 	public static AnimalGroupTO map(AnimalGroup agModel) {
 		AnimalGroupTO agTo = new AnimalGroupTO();
 		Test testTo= new Test();
-		  agTo.setId(agModel.getId());
+		  agTo.setId(agModel.getAnimalGroupId());
 		  agTo.setAnimalGroupNumber(agModel.getAnimalGroupNumber());
 		  agTo.setType(agModel.getAgType());
 		  agTo.setTests(agModel.getTest().stream().map(t->testTo.map(t)).collect(
