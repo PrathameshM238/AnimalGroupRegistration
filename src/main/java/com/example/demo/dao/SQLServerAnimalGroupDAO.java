@@ -9,5 +9,6 @@ import com.example.demo.model.AnimalGroup;
 public interface SQLServerAnimalGroupDAO extends JpaRepository<AnimalGroup, Integer> {
 	
 	public AnimalGroup findByAnimalGroupNumber(String animalGroupNumber);
+	public AnimalGroup findByAnimalGroupId(Integer animalGroupId);
 
 }
