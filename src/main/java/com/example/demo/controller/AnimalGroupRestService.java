@@ -12,16 +12,17 @@ import com.example.demo.model.AnimalGroup;
 import com.example.demo.service.AnimalGroupBM;
 
 @RestController
+@RequestMapping("/animalGroup")
 public class AnimalGroupRestService {
 	@Autowired
 	AnimalGroupBM agBm;
 	
-	@RequestMapping(value="animal-group-registration", method=RequestMethod.POST)
+	@RequestMapping(value="/register", method=RequestMethod.POST)
 	public void createAnimalGroup(@RequestBody AnimalGroupTO animalGroupTo) {
 		agBm.createAnimalGroup(animalGroupTo);
 	}
 	
-	@RequestMapping(value="get-animal-group-details/{ag-number}", method=RequestMethod.GET)
+	@RequestMapping(value="/{ag-number}", method=RequestMethod.GET)
 	public AnimalGroupTO getAgDetails(@PathVariable("ag-number") String agNumber) {
 		return AnimalGroupTO.map(agBm.getAnimalGroupByNumber(agNumber));
 	}
