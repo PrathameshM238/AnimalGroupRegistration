@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,10 @@ public void createAnimalGroup(AnimalGroupTO animalGroup) {
 
 public AnimalGroup getAnimalGroupByNumber(String animalGroupNumber) {
 	return agDao.findByAnimalGroupNumber(animalGroupNumber);
+}
+
+public AnimalGroup getAnimalGroupById(Integer animalGroupId) {
+	return agDao.findByAnimalGroupId(animalGroupId);
 }
 
 }

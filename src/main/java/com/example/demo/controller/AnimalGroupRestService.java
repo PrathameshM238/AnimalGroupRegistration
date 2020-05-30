@@ -26,5 +26,10 @@ public class AnimalGroupRestService {
 	public AnimalGroupTO getAgDetails(@PathVariable("ag-number") String agNumber) {
 		return AnimalGroupTO.map(agBm.getAnimalGroupByNumber(agNumber));
 	}
+	
+	@RequestMapping(value="get-animal-group-by-id/{animalGroupId}", method=RequestMethod.GET)
+	public AnimalGroupTO getAgDetails(@PathVariable("animalGroupId") Integer animalGroupId) {
+		return AnimalGroupTO.map(agBm.getAnimalGroupById(animalGroupId));
+	}
 
 }
